@@ -1,0 +1,29 @@
+name: Deploy
+on: push
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout sources
+              uses: actions/checkout@v4
+            - name: lint
+              run: npm run lint
+            - name: done
+              run: echo "Lint done."
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout sources
+              uses: actions/checkout@v4
+            - name: lint
+              run: npm run test
+            - name: done
+              run: echo "Test done."
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: [test, lint]
+        steps:
+            - name: done
+              run: echo "Deploy done."
