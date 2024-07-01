@@ -6,6 +6,8 @@ jobs:
         steps:
             - name: checkout sources
               uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
             - name: lint
               run: npm run lint
             - name: done
@@ -16,6 +18,8 @@ jobs:
         steps:
             - name: checkout sources
               uses: actions/checkout@v4
+            - name: install dependencies
+              run: npm ci
             - name: lint
               run: npm run test
             - name: done
